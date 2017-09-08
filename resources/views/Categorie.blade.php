@@ -5,6 +5,6 @@
 -----------------------
 
 @foreach($post as $p)
-{{$p['name']}}
+{{$p->categorie->id}}
 @endforeach
 @endsection
