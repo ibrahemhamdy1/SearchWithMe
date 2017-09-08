@@ -49,10 +49,11 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name'         => 'required|string|max:255',
-            'user_phone' => 'required|string|max:15',
-            'user_city' => 'required|string|max:15',            
+            'user_phone'   => 'required|string|max:15',
+            'user_city'    => 'required|string|max:15',            
             'email'        => 'required|string|email|max:255|unique:users',
             'password'     => 'required|string|min:1|confirmed',
+            'image'        =>'required|image',
         ]);
     }
 
@@ -64,8 +65,13 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        dd($data['user_city'],$data['address']);
-        
+        //dd($data['user_city'],$data['address']);
+       $image =$data['image'];
+        if(isset($image)){
+            $image=$this->upload($image);
+        }else{
+            $image=public_path('/images/user/defulat.jpg');
+        }
         return User::create([
             'name' => $data['name'],
             'user_phone' => $data['user_phone'],
@@ -73,6 +79,18 @@ class RegisterController extends Controller
             'address'    => $data['address'],            
             'email'      => $data['email'],
             'password'   => bcrypt($data['password']),
+            'image'      =>$image,
         ]);
+    }
+
+
+
+    public function upload($file){
+        $extension =$file->getClientOriginalExtension();
+        $sha1 =sha1($file->getClientOriginalName());
+        $filename=date('Y-m-d-i-s')."_".$sha1.".".$extension;
+        $path=public_path('/images/user/');
+        $file->move($path,$filename);
+        return  'images/user/'.$filename;
     }
 }
