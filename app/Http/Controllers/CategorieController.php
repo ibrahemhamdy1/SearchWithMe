@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Categorie;
 use Illuminate\Http\Request;
-
+use App\Post;
 class CategorieController extends Controller
 {
     /**
@@ -46,7 +46,11 @@ class CategorieController extends Controller
      */
     public function show(Categorie $categorie,$id)
     {
-        dd($cats=Categorie::findOrFail($id));
+        $cats=Categorie::all();        
+        $cat=Categorie::findOrFail($id);
+        $post=Post::where('cat_id',$cat->id)->get();
+        // dd($post);
+        return  view('categorie',compact('cat','cats','post'));
 
     }
 

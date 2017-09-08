@@ -82,7 +82,7 @@
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 @foreach($cats as $cat)
-                    <li><a href="Categorie/{{$cat['id']}}">{{$cat['name']}} </li>
+                    <li><a href="/Categorie/{{$cat['id']}}">{{$cat['name']}} </li>
                 @endforeach
                 </ul>
             </div>
