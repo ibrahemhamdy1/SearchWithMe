@@ -25,6 +25,56 @@
                             </div>
                         </div>
 
+
+
+                          <!-- here  we start the  phone  user  input-->
+                            <div class="form-group">
+                                <label for="number" class="col-md-4 control-label">Your  phone</label>
+
+                                <div class="col-md-6">
+                                    <input id="user_phone" type="number" class="form-control" name="user_phone" value="{{ old('number-phone') }}" required>
+
+                                    @if ($errors->has('user_phone'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('user_phone') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                          <!-- here  we end the  phone  user  input  -->
+
+                          <!-- here  we start the  city  user  input-->
+                          <div class="form-group">
+                                <label for="text" class="col-md-4 control-label">Your  city </label>
+
+                                <div class="col-md-6">
+                                    <input id="user_city" type="text" class="form-control" name="user_city" value="{{ old('user_city') }}" required>
+
+                                    @if ($errors->has('user_city'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('user_city') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                          <!-- here  we end the  city  user  input  -->
+
+                          <!-- here  we start the user address  input-->
+                          <div class="form-group">
+                                <label for="text" class="col-md-4 control-label">Your  address </label>
+
+                                <div class="col-md-6">
+                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+
+                                    @if ($errors->has('address'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('address') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                          <!-- here  we end the user address   input  -->
+
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
