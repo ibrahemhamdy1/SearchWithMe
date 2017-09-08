@@ -20,4 +20,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/Categorie', 'CategorieController');
 
-//factory(App\User::class,10)->create();
+//factory(App\Post::class,10)->create();

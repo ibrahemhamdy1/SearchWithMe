@@ -12,9 +12,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mystyel.css') }}" rel="stylesheet">
+
 </head>
 <style>
 .navbar{margin-bottom:0;}
+
 </style>
 <body>
     <div id="app">
@@ -78,11 +81,11 @@
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
-                
+
                 </div>
                 <ul class="nav navbar-nav navbar-right">
                 @foreach($cats as $cat)
-                    <li><a href="/Categorie/{{$cat['id']}}">{{$cat['name']}} </li>
+                    <li><a href="/Categorie/{{$cat['id']}}"> {{$cat['name']}}</a> </li>
                 @endforeach
                 </ul>
             </div>

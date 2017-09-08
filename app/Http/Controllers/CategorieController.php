@@ -48,7 +48,7 @@ class CategorieController extends Controller
     {
         $cats=Categorie::all();        
         $cat=Categorie::findOrFail($id);
-        $post=Post::where('cat_id',$cat->id)->get();
+        $post=Post::where('cat_id',$cat->id,5)->paginate(20);
         // dd($post);
         return  view('categorie',compact('cat','cats','post'));
 
