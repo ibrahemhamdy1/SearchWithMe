@@ -44,9 +44,10 @@ class CategorieController extends Controller
      * @param  \App\Categorie  $categorie
      * @return \Illuminate\Http\Response
      */
-    public function show(Categorie $categorie)
+    public function show(Categorie $categorie,$id)
     {
-        //
+        dd($cats=Categorie::findOrFail($id));
+
     }
 
     /**
