@@ -32,7 +32,7 @@
                                 <label for="number" class="col-md-4 control-label">Your  phone</label>
 
                                 <div class="col-md-6">
-                                    <input id="user_phone" type="number" class="form-control" name="user_phone" value="{{ old('number-phone') }}" required>
+                                    <input id="user_phone" type="number" class="form-control" name="user_phone" value="{{ old('number-phone') }}" required/>
 
                                     @if ($errors->has('user_phone'))
                                         <span class="help-block">
@@ -48,7 +48,7 @@
                                 <label for="text" class="col-md-4 control-label">Your  city </label>
 
                                 <div class="col-md-6">
-                                    <input id="user_city" type="text" class="form-control" name="user_city" value="{{ old('user_city') }}" required>
+                                    <input id="user_city" type="text" class="form-control" name="user_city" value="{{ old('user_city') }}" required />
 
                                     @if ($errors->has('user_city'))
                                         <span class="help-block">
