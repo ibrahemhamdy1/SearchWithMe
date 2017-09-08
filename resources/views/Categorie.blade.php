@@ -14,7 +14,7 @@
             <div class="caption"> 
             <span class="age-Tag"> 18 </span>
             <img  class="  img" src="{{$p['image']}}" alt=""  width="219.63px" max-height="425px"/>
-            <h3><a href="#">{{$p['name']}}</a></h3>
+            <h3><a href="/Post/{{$p['id']}}">{{$p['name']}}</a></h3>
             <p>{{$p['description']}}</p>
                 <div class="date">Add_Date</div>
             </div>

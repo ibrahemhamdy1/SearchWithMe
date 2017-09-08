@@ -19,5 +19,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/Categorie', 'CategorieController');
+Route::resource('/Post', 'PostController');
 
 //factory(App\Post::class,10)->create();

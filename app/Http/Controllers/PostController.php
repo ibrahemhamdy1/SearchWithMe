@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Categorie;
+
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -12,11 +14,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+
+
+     public function __construct()
+     
+     {   $cats=Categorie::all();
+         $this->middleware('auth');
+         return view('home',compact('cats'));
+     }
+    public function index($id)
     {
-        //
+        
     }
 
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -44,9 +55,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Post $post,$id)
     {
-        //
+        $post=Post::findOrFail($id);
+        return  view('post',compact('post'));
     }
 
     /**

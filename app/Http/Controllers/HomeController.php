@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 use App\Categorie;
 class HomeController extends Controller
 {
+    
     /**
      * Create a new controller instance.
      *
      * @return void
      */
     public function __construct()
-    {
+    
+    {   $cats=Categorie::all();
         $this->middleware('auth');
+        return view('home',compact('cats'));
     }
 
     /**

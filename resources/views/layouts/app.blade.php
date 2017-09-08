@@ -71,7 +71,7 @@
                                     </li>
                                 </ul>
                             </li>
-                        @endguest
+                        
                     </ul>
                 </div>
             </div>
@@ -84,10 +84,14 @@
 
                 </div>
                 <ul class="nav navbar-nav navbar-right">
-                @foreach($cats as $cat)
-                    <li><a href="/Categorie/{{$cat['id']}}"> {{$cat['name']}}</a> </li>
-                @endforeach
+
+                @if(isset($cats))
+                    @foreach($cats as $cat)
+                        <li><a href="/Categorie/{{$cat['id']}}"> {{$cat['name']}}</a> </li>
+                    @endforeach
+                @endif
                 </ul>
+                @endguest
             </div>
 
         </nav>
