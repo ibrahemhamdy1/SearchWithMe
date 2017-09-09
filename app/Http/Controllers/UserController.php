@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use  App\User;
+use  App\Post;
+
 class UserController extends Controller
 {
     /**
@@ -46,7 +48,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user  =User::findOrFail($id);
-       return  view('User',compact('user'));
+        $posts  =Post::where('user_id',$id)->get();
+        //dd($posts);
+        return  view('User',compact('user','posts'));
     }
 
     /**

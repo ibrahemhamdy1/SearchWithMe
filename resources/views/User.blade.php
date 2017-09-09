@@ -24,33 +24,50 @@
 			</div>
 			
 				<div class="panel-body text-center">
-					<ul class="list-unstyled text-center">	
-						<li>
-                            <i class="fa fa-unlock-alt fa-fw"></i>
-                            Name: <h3>{{$user['name']}}</h3>
-						</li>
-
-						<li>
-							<i class="fa  fa-mobile fa-fw"></i>
-                             Moblie: <h3>{{$user['user_phone']}}</h3>						</li>
-
-                        </li>
-							<i class="fa fa-home fa-fw"></i>
-                            city: <h3>{{$user['user_city']}}</h3>	
+                        <ul class="list-unstyled text-center">	
+                            <li>
+                                <i class="fa fa-unlock-alt fa-fw"></i>
+                                Name: {{$user['name']}}
                             </li>
-						</li>
 
-						
+                            <li>
+                                <i class="fa  fa-mobile fa-fw"></i>
+                                Moblie: {{$user['user_phone']}}						</li>
+                            </li>
 
-						
-						
-						</li>
+                            <li>
+                                <i class="fa fa-home fa-fw"></i>
+                                City: {{$user['user_city']}}	
+                                </li>
 
-						
-						
-					</ul>
+                            
+
+                            
+                            
+
+                            
+                            
+                        </ul>
+                </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
-</div>
+
+
+
+<div id="myad" class="myads">		
+
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">Owner Ads</div>
+				<div class="panel-body">
+                    @foreach($posts as $p)
+                        {{$p['name']}}
+                    @endforeach
+
+                </div>    
+            </div>         
+        </div>            
+    </div>                
+</div>                    
 @endsection
