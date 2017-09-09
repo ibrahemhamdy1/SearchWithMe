@@ -21,5 +21,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('/Categorie', 'CategorieController');
 Route::resource('/Post', 'PostController');
 Route::resource('/Comment', 'CommentController');
+Route::resource('/User', 'UserController');
 
 //factory(App\Post::class,10)->create();

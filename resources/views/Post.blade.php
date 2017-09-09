@@ -84,10 +84,29 @@
 		</div>		
 	<hr class="custom-hr">
 
-	<div  class="comment-box">
+	<div  class="comment-box ">
 		<div class="row">
-			<div class="col-sm-2 text-center">
-			</div>
+			
+				@if(!empty($comment))
+					@foreach($comment as $c)
+						@if(!empty($c->user->image&&$c['comment']))
+
+						<div class="col-sm-2 text-center">
+
+						<a href="/User/{{$c->user->id}}">	<img  class="img-responsive img-thumbnail   img-circle" src="/{{$c->user->image}}" alt="" max-hight="40px"/></a>
+							
+								
+
+						</div>
+
+						<div class="col-sm-10 lead">
+							{{$c['comment']}}
+						</div>
+						@endif
+					
+					@endforeach
+				@endif
+			
 		</div>		
 	</div>	
 

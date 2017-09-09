@@ -2,33 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Post;
-use App\Categorie;
-use App\Comment;
-
 use Illuminate\Http\Request;
 
-class PostController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-
-
-     public function __construct()
-     
-     {   $cats=Categorie::all();
-         $this->middleware('auth');
-         return view('home',compact('cats'));
-     }
-    public function index($id)
+    public function index()
     {
-        
+        //
     }
 
-    
     /**
      * Show the form for creating a new resource.
      *
@@ -53,27 +40,21 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post,$id)
+    public function show($id)
     {
-        $cats=Categorie::all();
-        $post=Post::findOrFail($id);
-        $comment=Comment::where('post_id',$id)->get();
-        
-        
-       
-        return  view('post',compact('post','cats','comment'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
         //
     }
@@ -82,10 +63,10 @@ class PostController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -93,10 +74,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Post  $post
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy($id)
     {
         //
     }
