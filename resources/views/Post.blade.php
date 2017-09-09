@@ -66,5 +66,32 @@
 
 		</div>
     </div>
+
+	<hr class="custom-hr">
+
+		<div  class="row">
+			<div class="col-md-offset-3">
+				<div class="add-comment">
+					<h3>AddYourComment </h3>
+					{!! Form::open(array('route'=>'Comment.store'))!!}
+					{{ csrf_field() }}
+						{!!Form::textarea('comment',null,array('required','class'=>'form-control','placeholder'=>'comment'))!!}
+						{!! Form::hidden('post_id', $post['id'] )!!}
+						{!! Form::submit('AddComment',array('class'=>'btn  btn-primary'))!!}
+					{!! Form::close() !!}
+				</div>
+			</div>	
+		</div>		
+	<hr class="custom-hr">
+
+	<div  class="comment-box">
+		<div class="row">
+			<div class="col-sm-2 text-center">
+			</div>
+		</div>		
+	</div>	
+
+<!-- end  -->
+
 </div>
 @endsection
