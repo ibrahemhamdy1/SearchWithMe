@@ -4,7 +4,7 @@
 <div class="contaner itempage">
     <div class="row">
             <div class="col-md-3 ">
-                <img  class="img-responsive img-thumbnail center-block" src="{{$post['image']}}" alt="" height="252.5" width="300.34"/>
+                <img  class="img-responsive img-thumbnail center-block" src="/{{$post['image']}}" alt="" height="252.5" width="300.34"/>
             </div>
             <div class="col-md-9 item-info  ">
 			<h2>{{$post['name']}}</h2>

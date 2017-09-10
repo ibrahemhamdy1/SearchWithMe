@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +26,8 @@ class PostController extends Controller
      }
     public function index()
     {
-        return  view('NewPost');
+        $cats=Categorie::all();
+        return  view('NewPost',compact('cats'));
         
     }
 
@@ -48,9 +50,40 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cats=Categorie::all();
+        $image =$request['image'];
+        
+        if(isset($image)){
+            $image=$this->upload($image);
+            
+        }else{
+            $image=public_path('/images/user/defulat.jpg');
+        }
+        //dd($request['Categorie']);
+        $request['user_id']= \Auth::user()->id;
+         Post::create([
+            'name'                    => $request['name'],
+            'age'                     => $request['age'],
+            'description'             => $request['description'],
+            'adders'                  => $request['adders'],            
+            'country'                 => $request['country'],
+            'gnader'                  => $request['gnader'],
+            'lost_relationship'       => $request['lost_relationship'],
+            'image'                    => $image,
+            'tags'                    => $request['tags'],            
+            'cat_id'                  =>$request['Categorie'],
+            'user_id'                 =>$request['user_id'],
+        ]);
+        return back();
     }
-
+    public function upload($file){
+        $extension =$file->getClientOriginalExtension();
+        $sha1 =sha1($file->getClientOriginalName());
+        $filename=date('Y-m-d-i-s')."_".$sha1.".".$extension;
+        $path=public_path('/images/user/');
+        $file->move($path,$filename);
+        return  'images/user/'.$filename;
+    }
     /**
      * Display the specified resource.
      *

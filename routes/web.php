@@ -25,4 +25,4 @@ Route::resource('/NewPost', 'PostController');
 Route::resource('/Comment', 'CommentController');
 Route::resource('/User', 'UserController');
 
-//factory(App\Post::class,10)->create();
+//factory(App\Post::class,20)->create();

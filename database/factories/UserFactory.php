@@ -42,17 +42,17 @@ $factory->define(App\Categorie::class, function (Faker $faker) {
 $factory->define(App\Post::class, function (Faker $faker) {
     
         return  [
-            'name'=>$faker->name,
-            'age'=>$faker->randomDigit,
-            'description'=>$faker->paragraph($nbSentences = 1, $variableNbSentences = true),
-            'adders' => $faker->streetAddress,
-            'country' => $faker->city,
-            'gnader'=>$faker->titleMale,
-            'lost_relationship'=>$faker->word,
-            'image'=>$faker->imageUrl($width = 640, $height = 480),
-            'tags'=>$faker->word(),
-            'cat_id'=>$faker->numberBetween($min = 1, $max =3),
-            'user_id'=>$faker->numberBetween($min = 1, $max =10),
+            'name'              =>$faker->name,
+            'age'               =>$faker->randomDigit,
+            'description'       =>$faker->paragraph($nbSentences = 1, $variableNbSentences = true),
+            'adders'            => $faker->streetAddress,
+            'country'           => $faker->city,
+            'gnader'            =>$faker->titleMale,
+            'lost_relationship' =>$faker->word,
+            'image'             =>'images/user/image.png',
+            'tags'              =>$faker->word(),
+            'cat_id'            =>$faker->numberBetween($min = 1, $max =2),
+            'user_id'           =>$faker->numberBetween($min = 1, $max =25),
         ];
     });
 

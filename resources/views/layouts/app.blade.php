@@ -46,18 +46,18 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right " style="z-index: 99 !important;">
                         <!-- Authentication Links -->
                         @guest
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                            <li class="dropdown">
+                        <li><a href="/NewPost"> Add a New Post</a></li>
+                            <li >
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name }} 
                                 </a>
 
-                                <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
@@ -69,16 +69,15 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
-                                </ul>
                             </li>
                         
                     </ul>
                 </div>
             </div>
         </nav>
-
+    
     <!-- start cat nav -->
-        <nav class="navbar navbar-default navbar-static-top">
+        <nav class="navbar navbar-default navbar-static-top ">
             <div class="container">
                 <div class="navbar-header">
 
