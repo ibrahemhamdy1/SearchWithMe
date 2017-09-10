@@ -154,3 +154,7 @@ h1{
     display: inline-block;
     width: 120px;
     }
+
+    .form-group{
+        margin-bottom: 10px;
+    }

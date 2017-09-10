@@ -23,8 +23,9 @@ class PostController extends Controller
          $this->middleware('auth');
          return view('home',compact('cats'));
      }
-    public function index($id)
+    public function index()
     {
+        return  view('NewPost');
         
     }
 
@@ -66,7 +67,7 @@ class PostController extends Controller
        
         return  view('post',compact('post','cats','comment'));
     }
-
+    
     /**
      * Show the form for editing the specified resource.
      *
