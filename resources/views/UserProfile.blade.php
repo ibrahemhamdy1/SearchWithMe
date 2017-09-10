@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    {{$user['name']}}
 
 <h1 class="text-center">MyProfile </h1>
 <div class="information blocks">		
@@ -61,4 +60,37 @@
         </div>        
     </div>
 <div>
+
+<div id="myad" class="myads">		
+	<div class="container">
+		<div class="panel panel-primary">
+			<div class="panel-heading">MyAds</div>
+				<div class="panel-body">	
+					<div class="row">
+					<!--  -->
+					@if(isset($posts) && !empty($posts) )
+							@foreach($posts as $p)
+								<div class="col-sm-6 col-md-3">
+									<div class="thumbnail item-box">
+										<span class="approve-status img-responsive img-thumbnail center-block">NOtfound</span> 
+										<div class="caption"> 
+											<span class="age-Tag"> {{$p['age']}}</span>
+											<img  class="  img" src="/{{$p['image']}}" alt=""  width="219.63px" max-height="425px"/>
+											<h3><a href="/Post/{{$p['id']}}">{{$p['name']}}</a></h3>
+											<p>{{$p['description']}}</p>
+											<div class="date">Add_Date</div>
+										</div>
+									</div>
+								</div>
+							@endforeach
+						@else 
+							<h1>You  dont  have any posts</h1>
+					@endif	
+					<!--  -->
+					</div>
+
+				</div>
+		</div>		
+	</div>			
+</div>				
 @endsection

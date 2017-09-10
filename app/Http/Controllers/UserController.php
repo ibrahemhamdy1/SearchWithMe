@@ -24,8 +24,13 @@ class UserController extends Controller
     public function index()
     {
         $user= \Auth::user();
+        $id=$user['id'];
+        $posts=Post::where('user_id',$id)->get();
         
-        return view('UserProfile',compact('user'));
+                    
+       
+       
+        return view('UserProfile',compact('user','posts'));
     }
 
     /**

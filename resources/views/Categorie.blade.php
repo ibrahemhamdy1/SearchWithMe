@@ -12,7 +12,7 @@
         <div class="thumbnail item-box">
             <span class="approve-status img-responsive img-thumbnail center-block">NOtfound</span> 
             <div class="caption"> 
-            <span class="age-Tag"> 18 </span>
+            <span class="age-Tag"> {{$p['age']}}</span>
             <img  class="  img" src="/{{$p['image']}}" alt=""  width="219.63px" max-height="425px"/>
             <h3><a href="/Post/{{$p['id']}}">{{$p['name']}}</a></h3>
             <p>{{$p['description']}}</p>
