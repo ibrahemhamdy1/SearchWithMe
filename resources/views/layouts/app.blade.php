@@ -52,24 +52,44 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
-                        <li><a href="/NewPost"> Add a New Post</a></li>
-                            <li >
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} 
-                                </a>
+                        <img  class="myimg img-circle" src="/{{ Auth::user()->image }} " alt="" max-hight="30px" max-wdith="30px" 
+                                    style="height: 30px;width: 30px;"/>
+                                    {{ Auth::user()->name }}
+                        <div class="btn-group my-info">
 
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                            <span class="btn dropdown-toggle" data-toggle="dropdown">
+                                <?php //echo $Get['Username'];?>
+                                <span class="caret"></span>
+                                </span>
+                                
+                                <ul class="dropdown-menu">
+                                <li><a href="/NewPost"> Add a New Post</a></li>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                            </li>
+                                    <li><a href="/UserProfile">MyProfile -{{ Auth::user()->name }} 
+</a></li>
+                                    
+                                    <li><a href="profile.php#myad">myItem<?php //echo lang('myItem')?></a></li>
+                                    <li >
+                                    
+                                        <li>
+                                            <a href="{{ route('logout') }}"
+                                                onclick="event.preventDefault();
+                                                         document.getElementById('logout-form').submit();">
+                                                Logout
+                                            </a>
+    
+                                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                {{ csrf_field() }}
+                                            </form>
+                                        </li>
+                                </li>
+                                </ul>
+                        
+
+      
+                        </div>
+                        
+                        
                         
                     </ul>
                 </div>
@@ -77,7 +97,7 @@
         </nav>
     
     <!-- start cat nav -->
-        <nav class="navbar navbar-default navbar-static-top ">
+        <nav class="navbar navbar-default  ">
             <div class="container">
                 <div class="navbar-header">
 

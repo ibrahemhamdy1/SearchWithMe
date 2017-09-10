@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use  App\User;
 use  App\Post;
+use  App\Categorie;
 
 class UserController extends Controller
 {
@@ -13,9 +14,18 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+     public function __construct()
+     
+     {   $cats=Categorie::all();
+         $this->middleware('auth');
+         return view('home',compact('cats'));
+     }
     public function index()
     {
-        //
+        $user= \Auth::user();
+        
+        return view('UserProfile',compact('user'));
     }
 
     /**

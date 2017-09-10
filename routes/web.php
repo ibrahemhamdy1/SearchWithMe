@@ -24,5 +24,6 @@ Route::resource('/NewPost', 'PostController');
 
 Route::resource('/Comment', 'CommentController');
 Route::resource('/User', 'UserController');
+Route::resource('/UserProfile', 'UserController');
 
 //factory(App\Post::class,20)->create();
