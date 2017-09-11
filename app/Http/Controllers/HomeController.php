@@ -14,7 +14,9 @@ class HomeController extends Controller
      */
     public function __construct()
     
-    {   $cats=Categorie::all();
+    { 
+       // dd(bcrypt(1));
+        $cats=Categorie::all();
         $this->middleware('auth');
         return view('home',compact('cats'));
     }

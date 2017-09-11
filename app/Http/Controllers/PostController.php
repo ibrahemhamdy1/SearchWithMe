@@ -132,13 +132,13 @@ class PostController extends Controller
     public function update(Request $request,$id)
     {
         $input=$request->all();
-        if(isset($input['image'])){
+        if(isset($input['image']))
+        {
                 $input['image']=$this->upload($input['image']);
-        
         }
         Post::findOrFail($id)->update($input);
         return redirect ()->back();
-        }
+    }
 
     /**
      * Remove the specified resource from storage.

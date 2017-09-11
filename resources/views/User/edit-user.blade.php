@@ -5,17 +5,26 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
-                <div class="panel-heading">Register</div>
+
+                <div class="panel-heading">Edit  Your  Profile</div>
+                					<div class="col-md-12 text-center">
+                                        <img  class="img-responsive img-thumbnail  
+                                                img-circle text-center" 
+                                                src="/{{$user['image']}}" 
+                                                alt="" hight="100px" width="100px"
+                                        />
+                                    </div>    
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
+                {!! Form::model($user,array('method'=>'PATCH','action'=>['UserController@update',$user->id],'files'=>true))!!}
+
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                {!!Form::text('name',null,array('required','class'=>'form-control live','placeholder'=>'Your  name '))!!}
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -32,7 +41,7 @@
                                 <label for="number" class="col-md-4 control-label">Your  phone</label>
 
                                 <div class="col-md-6">
-                                    <input id="user_phone" type="number" class="form-control" name="user_phone" value="{{ old('number-phone') }}" required/>
+                                    {!!Form::text('user_phone',null,array('required','class'=>'form-control live','placeholder'=>'Your phone  number'))!!}
 
                                     @if ($errors->has('user_phone'))
                                         <span class="help-block">
@@ -48,7 +57,7 @@
                                 <label for="text" class="col-md-4 control-label">Your  city </label>
 
                                 <div class="col-md-6">
-                                    <input id="user_city" type="text" class="form-control" name="user_city" value="{{ old('user_city') }}" required />
+                                    {!!Form::text('user_city',null,array('required','class'=>'form-control live','placeholder'=>'Your user_city'))!!}
 
                                     @if ($errors->has('user_city'))
                                         <span class="help-block">
@@ -64,7 +73,7 @@
                                 <label for="text" class="col-md-4 control-label">Your  address </label>
 
                                 <div class="col-md-6">
-                                    <input id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required>
+                                    {!!Form::text('address',null,array('required','class'=>'form-control live','placeholder'=>'Your address'))!!}
 
                                     @if ($errors->has('address'))
                                         <span class="help-block">
@@ -79,7 +88,7 @@
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required>
+                                {!!Form::text('email',null,array('required','class'=>'form-control live','placeholder'=>'Your email'))!!}
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -93,7 +102,7 @@
                             <label for="password" class="col-md-4 control-label">Password</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+                                {!!Form::password('password',null,array('required','class'=>'form-control live','placeholder'=>'Your password'))!!}
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -103,24 +112,9 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
+                        
                     <!--start Image  -->
-                        <div class="form-group">
-                            <label>Upload Image</label>
-                            <div class="input-group">
-                                <span class="input-group-btn">
-                                    <span class="btn btn-default btn-file">
-                                        Browse… <input type="file" id="image" name="image" require>
-                                    </span>
-                                </span>
-                            </div>
-                        </div>
+                        
 
                          <!--start Image  -->
     
@@ -128,12 +122,11 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
+                            {!! Form::submit('Update',array('class'=>'btn  btn-primary')) !!}
+                            {!! Form::close() !!} 
+
                             </div>
                         </div>
-                    </form>
                 </div>
             </div>
         </div>

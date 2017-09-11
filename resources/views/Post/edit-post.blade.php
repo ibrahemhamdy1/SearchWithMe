@@ -133,7 +133,8 @@
                         <div class="text-center">
                         {!! Form::submit('Update',array('class'=>'btn  btn-primary'))!!}
                         </div>
-                        
+                        {!! Form::close() !!} 
+
                       </div>
                       <img  class="img-responsive img-thumbnail center-block" src="/{{$post['image']}}" alt="" height="252.5" width="300.34"/>
                       

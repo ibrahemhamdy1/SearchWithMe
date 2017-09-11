@@ -96,8 +96,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-    }
+        $input=$request->all();
+       $input['password'] =bcrypt($input['password']);
+        if(isset($input['image']))
+        {
+                $input['image']=$this->upload($input['image']);
+        }
+        User::findOrFail($id)->update($input);
+        return redirect ()->back();
+        }
 
     /**
      * Remove the specified resource from storage.
