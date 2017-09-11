@@ -79,6 +79,8 @@
 											<h3><a href="/Post/{{$p['id']}}">{{$p['name']}}</a></h3>
 											<p>{{$p['description']}}</p>
 											<div class="date">Add_Date</div>
+											<a href="Post/{{$p->id}}/edit"><span class="btn  btn-success"></span></a>
+											
 										</div>
 									</div>
 								</div>

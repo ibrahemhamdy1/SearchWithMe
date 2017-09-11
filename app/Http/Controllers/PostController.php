@@ -27,7 +27,7 @@ class PostController extends Controller
     public function index()
     {
         $cats=Categorie::all();
-        return  view('NewPost',compact('cats'));
+        return  view('Post/NewPost',compact('cats'));
         
     }
 
@@ -98,7 +98,7 @@ class PostController extends Controller
         
         
        
-        return  view('post',compact('post','cats','comment'));
+        return  view('Post/post',compact('post','cats','comment'));
     }
     
     /**
@@ -107,9 +107,10 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Post $post,$id)
     {
-        //
+        $post=Post::findOrFail($id);
+        return  view('Post/edit-post',compact('post'));
     }
 
     /**
@@ -119,10 +120,16 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request,$id)
     {
-        //
-    }
+        $input=$request->all();
+        if(isset($input['image'])){
+                $input['image']=$this->upload($input['image']);
+        
+        }
+        Post::findOrFail($id)->update($input);
+        return redirect ()->back();
+        }
 
     /**
      * Remove the specified resource from storage.
