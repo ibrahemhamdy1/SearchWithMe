@@ -94,11 +94,12 @@ class PostController extends Controller
     {
         $cats=Categorie::all();
         $post=Post::findOrFail($id);
+        $user_id=\Auth::user()->id;
         $comment=Comment::where('post_id',$id)->get();
         
         
        
-        return  view('Post/post',compact('post','cats','comment'));
+        return  view('Post/post',compact('post','cats','comment','user_id'));
     }
     
     /**
@@ -109,8 +110,16 @@ class PostController extends Controller
      */
     public function edit(Post $post,$id)
     {
+        
+        $cats=Categorie::all();
         $post=Post::findOrFail($id);
-        return  view('Post/edit-post',compact('post'));
+        $user_id=\Auth::user()->id;
+        if($post['user_id']==$user_id){   
+        return  view('Post/edit-post',compact('post','cats'));
+        } 
+        else{
+            return back();
+        }
     }
 
     /**

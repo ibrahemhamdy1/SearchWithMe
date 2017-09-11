@@ -52,7 +52,10 @@
                             Created at:{{$user['created_at']}} 
 						</li>
 
-						
+						<li>
+						<a href="User/{{$user->id}}/edit"><span class="btn  btn-success">edit</span></a>
+
+						</li>
 					</ul>
                         <!-- ######## -->
                     </div>
@@ -79,7 +82,7 @@
 											<h3><a href="/Post/{{$p['id']}}">{{$p['name']}}</a></h3>
 											<p>{{$p['description']}}</p>
 											<div class="date">Add_Date</div>
-											<a href="Post/{{$p->id}}/edit"><span class="btn  btn-success"></span></a>
+											<a href="Post/{{$p->id}}/edit"><span class="btn  btn-success">edit</span></a>
 											
 										</div>
 									</div>

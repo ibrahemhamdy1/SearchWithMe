@@ -60,6 +60,12 @@
 
 							
 				</li>
+				@if($post['user_id']==$user_id)
+				<li class='edit-btn'>
+				<a href="{{$post->id}}/edit"><span class="btn  btn-success">edit</span></a>
+
+				</li>
+				@endif
 		    </ul>
 
 

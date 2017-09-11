@@ -30,7 +30,7 @@ class UserController extends Controller
                     
        
        
-        return view('UserProfile',compact('user','posts'));
+        return view('User/UserProfile',compact('user','posts'));
     }
 
     /**
@@ -65,7 +65,7 @@ class UserController extends Controller
         $user  =User::findOrFail($id);
         $posts  =Post::where('user_id',$id)->get();
         //dd($posts);
-        return  view('User',compact('user','posts'));
+        return  view('User/User',compact('user','posts'));
     }
 
     /**
@@ -76,7 +76,15 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cats=Categorie::all();
+        $user=User::findOrFail($id);
+        $user_id=\Auth::user()->id;
+        if($user['id']==$user_id){   
+        return  view('User/edit-user',compact('user','cats'));
+        } 
+        else{
+            return back();
+        }
     }
 
     /**
